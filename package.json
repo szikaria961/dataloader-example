@@ -1,0 +1,21 @@
+{
+  "name": "dataloader-example",
+  "version": "1.0.0",
+  "description": "example code for DataLoader Blog Post",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "graphql",
+    "express",
+    "dataloader"
+  ],
+  "author": "Saba Zikaria",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
