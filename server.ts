@@ -1,6 +1,6 @@
 import { createYoga } from 'graphql-yoga'
 import { createServer } from 'node:http'
-import { schema } from '../dataloader-example/schema'
+import { schema } from './schema'
 
 const PORT = process.env.PORT || 8000;
 // Create a Yoga instance with a GraphQL schema.
