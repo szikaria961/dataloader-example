@@ -1,6 +1,9 @@
 import { createSchema } from 'graphql-yoga'
 import { books } from './src/data/books';
-import { getBookById } from './src/providers/book'; 
+import { getBooksByIds } from './src/providers/book'; 
+import * as DataLoader from "dataloader";
+
+const bookLoader = new DataLoader(getBooksByIds);
 
 export const schema = createSchema({
   typeDefs: /* GraphQL */ `
@@ -23,22 +26,22 @@ export const schema = createSchema({
     },
     Book: {
       name: async ({ id }) => {
-        const { name } = getBookById(id);
+        const { name } = await bookLoader.load(id);
 
         return name;
       },
       author: async ({ id }) => {
-        const { author } = getBookById(id);
+        const { author } = await bookLoader.load(id);
 
         return author;
       },
       price: async ({ id }) => {
-        const { price } = getBookById(id);
+        const { price } = await bookLoader.load(id);
 
         return price;
       },
       description: async ({ id }) => {
-        const { description } = getBookById(id);
+        const { description } = await bookLoader.load(id);
 
         return description;
       },

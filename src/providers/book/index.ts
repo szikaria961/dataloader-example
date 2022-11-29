@@ -6,3 +6,7 @@ export const getBookById = (id: string): Book => {
 
   return books.find((d) => d.id === id);
 };
+
+export const getBooksByIds = async (ids: string[]): Promise<Book[]> => {
+  return ids.map((id) => getBookById(id));
+};
